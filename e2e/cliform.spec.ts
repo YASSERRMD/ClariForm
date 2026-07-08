@@ -25,15 +25,15 @@ test.describe('ClariForm', () => {
   test('can select a form', async ({ page }) => {
     const selector = page.locator('#form-select')
     await selector.selectOption('individual-profile')
-    await expect(page.locator('text=Individual Profile')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Individual Profile' })).toBeVisible()
   })
 
   test('form fields render after selection', async ({ page }) => {
     const selector = page.locator('#form-select')
     await selector.selectOption('individual-profile')
     
-    await expect(page.locator('label:has-text("Full Name")')).toBeVisible()
-    await expect(page.locator('label:has-text("Emirates ID")')).toBeVisible()
+    await expect(page.getByLabel('Full Name (English)')).toBeVisible()
+    await expect(page.getByRole('textbox', { name: 'Emirates ID*' })).toBeVisible()
   })
 
   test('can fill in form fields', async ({ page }) => {
