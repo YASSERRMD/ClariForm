@@ -21,7 +21,7 @@ export async function saveDraft(formId: string, values: Record<string, string | 
     await db.drafts.update(existing.id, { values, updatedAt: new Date() })
     return existing.id
   }
-  return db.drafts.add({ formId, values, updatedAt: new Date() })
+  return db.drafts.add({ formId, values, updatedAt: new Date() }) as Promise<number>
 }
 
 export async function loadDraft(formId: string): Promise<Draft | undefined> {

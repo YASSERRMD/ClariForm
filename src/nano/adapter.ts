@@ -9,8 +9,10 @@ export interface NanoAdapter {
 export class NanoSessionAdapter implements NanoAdapter {
   private session: LanguageModelSession | null = null
   private available = false
+  private model: LanguageModel
 
-  constructor(private model: LanguageModel) {
+  constructor(model: LanguageModel) {
+    this.model = model
     this.available = true
   }
 

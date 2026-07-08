@@ -10,7 +10,7 @@ export async function detectNanoCapability(): Promise<NanoCapability> {
       }
     }
 
-    const model = await window.ai.create()
+    await window.ai.create()
     return {
       available: true,
       status: 'available',
