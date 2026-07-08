@@ -3,7 +3,6 @@ import {
   validateRequired,
   validatePattern,
   validateMinLength,
-  validateMaxLength,
   validateEmiratesId,
   validateMobile,
   validateTradeLicense,

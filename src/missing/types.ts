@@ -1,5 +1,3 @@
-import type { Language } from '../i18n/types'
-
 export interface MissingField {
   fieldId: string
   fieldLabel: string

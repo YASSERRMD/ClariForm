@@ -1,6 +1,6 @@
 import type { ValidationError } from './types'
 import { createValidationError } from './types'
-import type { FieldSchema, TextFieldSchema, NumberFieldSchema, DateFieldSchema } from '../schema'
+import type { FieldSchema, TextFieldSchema, DateFieldSchema } from '../schema'
 import type { Language } from '../i18n/types'
 import { t } from '../i18n/t'
 

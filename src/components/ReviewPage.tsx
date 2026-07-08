@@ -1,13 +1,6 @@
 import type { FormSchema, FieldSchema, SelectFieldSchema, FileChecklistFieldSchema } from '../schema'
 import type { Language } from '../i18n/types'
 
-interface ReviewFieldProps {
-  field: FieldSchema
-  value: string | boolean | string[]
-  language: Language
-  onEdit: (fieldId: string) => void
-}
-
 function ReviewFieldValue({ field, value, language }: { field: FieldSchema; value: string | boolean | string[]; language: Language }) {
   if (field.type === 'select') {
     const selectField = field as SelectFieldSchema

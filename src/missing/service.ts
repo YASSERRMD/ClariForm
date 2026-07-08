@@ -1,5 +1,5 @@
 import type { MissingField, MissingInfoResult } from './types'
-import type { FormSchema, FieldSchema } from '../schema'
+import type { FormSchema } from '../schema'
 import type { Language } from '../i18n/types'
 import { validateField } from '../validation'
 

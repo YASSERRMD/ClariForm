@@ -49,7 +49,7 @@ describe('nano adapter', () => {
   describe('FallbackAdapter', () => {
     it('throws on prompt', async () => {
       const adapter = new FallbackAdapter()
-      await expect(adapter.prompt('test')).rejects.toThrow('Nano not available')
+      await expect(adapter.prompt()).rejects.toThrow('Nano not available')
     })
 
     it('returns false for isAvailable', () => {
