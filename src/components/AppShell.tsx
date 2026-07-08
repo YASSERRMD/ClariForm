@@ -1,13 +1,16 @@
-export interface AppShellProps {
-  children: React.ReactNode
-}
+import { LanguageProvider, useLanguage } from '../i18n/LanguageProvider'
+import { LanguageSwitcher } from './LanguageSwitcher'
+import { t } from '../i18n/t'
 
-export function AppShell({ children }: AppShellProps) {
+function AppShellInner({ children }: { children: React.ReactNode }) {
+  const { language } = useLanguage()
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="border-b border-gray-200 bg-white px-4 py-3">
         <div className="mx-auto flex max-w-4xl items-center justify-between">
-          <h1 className="text-xl font-bold text-gray-900">ClariForm</h1>
+          <h1 className="text-xl font-bold text-gray-900">{t('app.name', language)}</h1>
+          <LanguageSwitcher />
         </div>
       </header>
       <main className="flex-1 px-4 py-6">
@@ -15,9 +18,21 @@ export function AppShell({ children }: AppShellProps) {
       </main>
       <footer className="border-t border-gray-200 bg-gray-50 px-4 py-3">
         <div className="mx-auto max-w-4xl text-center text-sm text-gray-500">
-          Your data stays in your browser. No information is sent to the cloud.
+          {t('footer.privacy', language)}
         </div>
       </footer>
     </div>
+  )
+}
+
+export interface AppShellProps {
+  children: React.ReactNode
+}
+
+export function AppShell({ children }: AppShellProps) {
+  return (
+    <LanguageProvider>
+      <AppShellInner>{children}</AppShellInner>
+    </LanguageProvider>
   )
 }
