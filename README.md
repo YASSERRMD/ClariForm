@@ -1,32 +1,50 @@
-# React + TypeScript + Vite
+# ClariForm
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Private bilingual form assistance directly in the browser.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+ClariForm is a browser-based Arabic/English form assistant that helps users understand fields, fill structured forms, validate inputs, and receive guidance without sending personal data to the cloud.
 
-## React Compiler
+## Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Privacy-first**: All processing happens locally in the browser
+- **Bilingual support**: Arabic and English UI with RTL/LTR switching
+- **Schema-driven forms**: Dynamic form rendering from JSON schemas
+- **Local validation**: Deterministic validation rules as source of truth
+- **Gemini Nano integration**: On-device AI assistance when available
+- **Offline capable**: PWA support for offline usage
 
-## Expanding the Oxlint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+- Vite + React + TypeScript
+- Tailwind CSS
+- Vitest (unit tests)
+- Playwright (e2e tests)
+- Chrome Built-in AI Prompt API / Gemini Nano
+- Local JSON form schemas
+- IndexedDB for draft storage
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Run unit tests
+npm run test
+
+# Run e2e tests
+npm run test:e2e
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Privacy Model
+
+ClariForm processes all form data locally in the browser. No personal data is sent to external services. When Gemini Nano is available, it provides on-device AI assistance without cloud connectivity.
+
+## License
+
+See LICENSE file for details.
