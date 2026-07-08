@@ -26,7 +26,7 @@ describe('nano capability', () => {
 
   it('detects downloadable when download is needed', async () => {
     vi.stubGlobal('ai', {
-      create: vi.fn().mockRejected(new Error('download required')),
+      create: vi.fn().mockRejectedValue(new Error('download required')),
     })
     const capability = await detectNanoCapability()
     expect(capability.available).toBe(false)
