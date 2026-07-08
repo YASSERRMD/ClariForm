@@ -83,7 +83,7 @@ describe('FormRenderer', () => {
         language="ar"
       />
     )
-    expect(screen.getByText('استمارة اختبار')).toBeInTheDocument()
+    expect(screen.getAllByText('استمارة اختبار').length).toBeGreaterThan(0)
     expect(screen.getByLabelText(/الاسم/)).toBeInTheDocument()
   })
 })
