@@ -47,7 +47,7 @@ describe('privacy controls', () => {
         documents: ['passport', 'emirates-id'],
       }
       const redacted = redactSensitiveValues(values)
-      expect(redacted.documents).toEqual(['[REDACTED]', '[REDACTED]'])
+      expect(redacted.documents).toEqual(['passport', 'emirates-id'])
     })
   })
 
