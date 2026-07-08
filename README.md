@@ -1,43 +1,52 @@
-# ClariForm
+<p align="center">
+  <img src="public/images/cliform-logo.png" alt="ClariForm" width="160" />
+</p>
 
-<img src="public/images/cliform-logo.png" alt="ClariForm Logo" width="120">
+<h1 align="center">ClariForm</h1>
 
-**Private bilingual form assistance directly in the browser**
+<p align="center">
+  <b>Private bilingual form assistance directly in the browser.</b>
+</p>
 
-> Mohamed Yasser | Solutions Architect
-
----
-
-## Overview
-
-ClariForm is a browser-based Arabic/English form assistant that helps users understand fields, fill structured forms, validate inputs, and receive AI-powered guidance — all without sending personal data to the cloud. Built with privacy at its core, ClariForm processes everything locally and integrates with Chrome's on-device Gemini Nano when available.
-
-`v1.0.0` · `Privacy-First` · `Bilingual AR/EN` · `Offline PWA`
-
----
-
-## Key Features
-
-| Feature | Description |
-|---------|-------------|
-| **Privacy-First** | All processing happens locally in the browser. No personal data ever leaves your device. |
-| **Bilingual Support** | Full Arabic and English UI with seamless RTL/LTR switching and localized validation messages. |
-| **Schema-Driven Forms** | Dynamic form rendering from JSON schemas with bilingual labels and type-specific constraints. |
-| **Local Validation** | Deterministic Zod validation rules as the source of truth — never AI-dependent. |
-| **Gemini Nano Integration** | On-device AI for field explanation, chat assistance, and input refinement when available. |
-| **Offline Capable** | Full PWA support with service workers and IndexedDB for offline draft persistence. |
+<p align="center">
+  <a href="#getting-started"><img alt="npm" src="https://img.shields.io/badge/package%20manager-npm-1B2A4A?style=flat-square" /></a>
+  <a href="#getting-started"><img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-1B2A4A?style=flat-square" /></a>
+  <a href="#privacy-model"><img alt="Privacy" src="https://img.shields.io/badge/privacy-local--first-C5A55A?style=flat-square" /></a>
+  <a href="#architecture"><img alt="Gemini Nano" src="https://img.shields.io/badge/AI-Gemini%20Nano%20on--device-C5A55A?style=flat-square" /></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache%202.0-666666?style=flat-square" /></a>
+</p>
 
 ---
 
-## Architecture
+ClariForm is a browser-based Arabic/English form assistant that helps users
+understand fields, fill structured forms, validate inputs, and receive
+guidance without sending personal data to the cloud.
 
-ClariForm follows a local-first architecture with a clear three-layer separation. All form data stays in the browser, validation runs deterministically, and AI assistance is optional and privacy-guarded.
+All processing happens locally in the browser. When Gemini Nano is available
+in Chrome, ClariForm uses it for on-device AI assistance — field explanation,
+form chat, and input refinement — without any cloud connectivity. Personal
+data is never sent to AI models.
 
-![ClariForm Architecture](public/images/architecture-diagram.png)
+<p align="center">
+  <img src="public/images/architecture-diagram.png" alt="ClariForm architecture: User Layer (Browser, Bilingual Forms, Language Switcher) feeds into Core Engine (Form Renderer, Validation Engine, Schema System, Draft Storage), with optional AI Layer (Gemini Nano Adapter, Field Explainer, Form Chat, Input Refinement). All data stays local." width="100%" />
+</p>
 
-> **All data stays local — no cloud calls, no external API requests, no data leaks.**
+## What's in the box
 
----
+- **Privacy-first architecture.** All form data stays in the browser via
+  IndexedDB. No cloud AI calls. Sensitive fields (Emirates ID, passport,
+  mobile, email) are auto-redacted from AI prompts with a full audit log.
+- **Bilingual support.** Full Arabic and English UI with seamless RTL/LTR
+  switching, localized validation messages, and bilingual form schemas.
+- **Schema-driven forms.** Dynamic form rendering from JSON schemas with
+  bilingual labels, type-specific constraints, and Zod validation.
+- **Local validation engine.** Deterministic validation rules are always the
+  source of truth — AI is never used for validation.
+- **Gemini Nano integration.** On-device AI for field explanation, form
+  assistance chat, and input refinement (non-sensitive fields only) via
+  Chrome's built-in `window.ai` API.
+- **Offline capable.** Full PWA support with service workers, Workbox
+  caching, and IndexedDB draft persistence.
 
 ## Tech Stack
 
@@ -54,8 +63,6 @@ ClariForm follows a local-first architecture with a clear three-layer separation
 | E2E Testing | Playwright (Chromium) |
 | Linting | oxlint |
 
----
-
 ## Privacy Model
 
 - **Zero cloud dependencies** — all form data stays in the browser
@@ -64,8 +71,6 @@ ClariForm follows a local-first architecture with a clear three-layer separation
 - **Validation as source of truth** — deterministic rules, never AI-generated
 - **Gemini Nano on-device** — AI runs locally via Chrome's built-in API
 
----
-
 ## Sample Forms
 
 | Form | Sections |
@@ -73,8 +78,6 @@ ClariForm follows a local-first architecture with a clear three-layer separation
 | **Individual Profile** | Personal info, Emirates ID, contact, document checklist |
 | **Business Registration** | Company details, trade license, owner info, documents |
 | **Service Request** | Requester info, service type, supporting documents |
-
----
 
 ## Getting Started
 
@@ -95,8 +98,6 @@ npm run test:e2e
 npm run build
 ```
 
----
-
 ## Development
 
 | Command | Description |
@@ -106,8 +107,6 @@ npm run build
 | `npm run test` | Run Vitest unit tests |
 | `npm run test:e2e` | Run Playwright e2e tests |
 | `npm run lint` | Run oxlint linter |
-
----
 
 ## Project Structure
 
@@ -127,6 +126,10 @@ src/
 └── privacy/          # Sensitive field redaction & audit log
 ```
 
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE).
+
 ---
 
-**MY** | Mohamed Yasser | Solutions Architect
+<p align="center"><sub>Mohamed Yasser | Solutions Architect</sub></p>
