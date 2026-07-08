@@ -1,6 +1,6 @@
 # ClariForm
 
-![ClariForm Logo](public/images/cliform-logo.png)
+<img src="public/images/cliform-logo.png" alt="ClariForm Logo" width="120">
 
 **Private bilingual form assistance directly in the browser**
 
