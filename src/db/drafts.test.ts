@@ -1,3 +1,4 @@
+import 'fake-indexeddb/auto'
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { saveDraft, loadDraft, clearDraft, db } from './drafts'
 
